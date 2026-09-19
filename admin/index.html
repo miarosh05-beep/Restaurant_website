@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ניהול האתר | Root &amp; Bloom</title>
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@600;700&amp;family=Heebo:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<div id="login-screen" class="login-screen">
+  <form id="login-form" class="login-card">
+    <img class="login-logo" src="/images/logo.png" alt="Root &amp; Bloom" width="56" height="56">
+    <h1>ניהול האתר</h1>
+    <p class="login-sub">הזינו את סיסמת הניהול כדי להמשיך</p>
+    <label class="field">
+      <span>סיסמה</span>
+      <input type="password" name="password" id="login-password" autocomplete="current-password" required>
+    </label>
+    <button type="submit" class="btn btn-primary">כניסה</button>
+    <p class="login-error" id="login-error" hidden></p>
+  </form>
+</div>
+
+<div id="dashboard" class="dashboard" hidden>
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <div class="admin-brand">
+        <img src="/images/logo.png" alt="" width="32" height="32">
+        <span>ניהול Root &amp; Bloom</span>
+      </div>
+      <div class="admin-header-actions">
+        <a href="/" target="_blank" class="link-muted">צפייה באתר ↗</a>
+        <button type="button" id="logout-btn" class="btn btn-outline btn-small">התנתקות</button>
+      </div>
+    </div>
+  </header>
+
+  <p class="loading-note" id="loading-note" hidden>טוען תוכן…</p>
+
+  <div class="admin-body">
+    <nav class="admin-tabs" role="tablist" aria-label="חלקי ניהול">
+      <button class="admin-tab is-active" data-tab="general" role="tab" aria-selected="true">כללי</button>
+      <button class="admin-tab" data-tab="gallery" role="tab" aria-selected="false">גלריה</button>
+      <button class="admin-tab" data-tab="menu" role="tab" aria-selected="false">תפריט</button>
+      <button class="admin-tab" data-tab="contact" role="tab" aria-selected="false">יצירת קשר</button>
+      <button class="admin-tab" data-tab="footer" role="tab" aria-selected="false">פוטר</button>
+    </nav>
+
+    <main class="admin-main">
+
+      <section class="admin-panel is-active" data-panel="general">
+        <h2>טקסטים כלליים</h2>
+        <div class="card">
+          <h3>הירו (מסך הפתיחה)</h3>
+          <label class="field"><span>שורת פתיחה קטנה</span><input type="text" id="f-hero-eyebrow"></label>
+          <label class="field"><span>כותרת ראשית (אפשר שורה חדשה בלחיצת Enter)</span><textarea id="f-hero-title" rows="2"></textarea></label>
+          <label class="field"><span>תת-כותרת</span><textarea id="f-hero-subtitle" rows="2"></textarea></label>
+        </div>
+        <div class="card">
+          <h3>הסיפור שלנו</h3>
+          <div id="story-paragraphs-editor" class="stack"></div>
+          <button type="button" class="btn btn-ghost btn-small" id="add-paragraph">+ הוספת פסקה</button>
+        </div>
+        <div class="card">
+          <h3>SEO (איך האתר מופיע בגוגל ובשיתוף)</h3>
+          <label class="field"><span>כותרת הדף</span><input type="text" id="f-seo-title"></label>
+          <label class="field"><span>תיאור הדף</span><textarea id="f-seo-description" rows="2"></textarea></label>
+        </div>
+        <button type="button" class="btn btn-primary save-btn" data-save="general">שמירה</button>
+        <span class="save-status" data-status="general"></span>
+      </section>
+
+      <section class="admin-panel" data-panel="gallery">
+        <h2>גלריה</h2>
+        <p class="hint">התמונה הראשונה מוצגת גדולה יותר. גרירה לשינוי סדר אינה נתמכת — למחוק ולהוסיף מחדש בסדר הרצוי.</p>
+        <ul class="gallery-editor" id="gallery-editor"></ul>
+        <label class="upload-btn btn btn-ghost">
+          + הוספת תמונה
+          <input type="file" id="gallery-upload-input" accept="image/jpeg,image/png,image/webp" hidden>
+        </label>
+        <p class="hint">עד 4MB לתמונה (JPEG / PNG / WebP)</p>
+        <span class="save-status" data-status="gallery"></span>
+      </section>
+
+      <section class="admin-panel" data-panel="menu">
+        <h2>תפריט</h2>
+        <div id="menu-editor" class="stack"></div>
+        <button type="button" class="btn btn-ghost" id="add-category">+ קטגוריה חדשה</button>
+        <div class="save-bar">
+          <button type="button" class="btn btn-primary save-btn" data-save="menu">שמירת התפריט</button>
+          <span class="save-status" data-status="menu"></span>
+        </div>
+      </section>
+
+      <section class="admin-panel" data-panel="contact">
+        <h2>יצירת קשר והזמנות</h2>
+        <div class="card">
+          <label class="field"><span>כתובת</span><input type="text" id="f-address"></label>
+          <label class="field"><span>הערה לגבי הכתובת (אופציונלי)</span><input type="text" id="f-address-note"></label>
+          <label class="field"><span>טלפון</span><input type="text" id="f-phone" placeholder="08-854-6454"></label>
+          <label class="field"><span>קישור להזמנת מקום (Ontopo)</span><input type="url" id="f-ontopo"></label>
+          <label class="field"><span>קישור לניווט (Google Maps)</span><input type="url" id="f-maps"></label>
+        </div>
+        <div class="card">
+          <h3>שעות פתיחה</h3>
+          <div id="hours-editor" class="stack"></div>
+          <button type="button" class="btn btn-ghost btn-small" id="add-hour-row">+ הוספת שורה</button>
+        </div>
+        <button type="button" class="btn btn-primary save-btn" data-save="contact">שמירה</button>
+        <span class="save-status" data-status="contact"></span>
+      </section>
+
+      <section class="admin-panel" data-panel="footer">
+        <h2>פוטר</h2>
+        <div class="card">
+          <label class="field"><span>קישור לאינסטגרם</span><input type="url" id="f-instagram"></label>
+          <label class="field"><span>קישור לפייסבוק</span><input type="url" id="f-facebook"></label>
+          <label class="field"><span>דירוג (למשל 4.8)</span><input type="text" id="f-rating"></label>
+          <label class="field"><span>מספר ביקורות</span><input type="text" id="f-review-count"></label>
+          <label class="field"><span>טווח מחירים</span><input type="text" id="f-price-range"></label>
+        </div>
+        <button type="button" class="btn btn-primary save-btn" data-save="footer">שמירה</button>
+        <span class="save-status" data-status="footer"></span>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<template id="tpl-paragraph">
+  <div class="row-editor">
+    <textarea class="p-input" rows="2"></textarea>
+    <button type="button" class="btn-icon remove-btn" aria-label="הסרת פסקה">✕</button>
+  </div>
+</template>
+
+<template id="tpl-hour-row">
+  <div class="row-editor row-editor--hours">
+    <input type="text" class="hour-label" placeholder="לדוגמה: שלישי – חמישי">
+    <input type="text" class="hour-time" placeholder="לדוגמה: 18:00 – 00:00 או סגור">
+    <button type="button" class="btn-icon remove-btn" aria-label="הסרת שורה">✕</button>
+  </div>
+</template>
+
+<template id="tpl-gallery-item">
+  <li class="gallery-editor-item">
+    <img class="thumb" src="" alt="">
+    <input type="text" class="alt-input" placeholder="תיאור התמונה (לנגישות)">
+    <button type="button" class="btn-icon remove-btn" aria-label="מחיקת תמונה">✕</button>
+  </li>
+</template>
+
+<template id="tpl-category">
+  <div class="category-card">
+    <div class="category-head">
+      <input type="text" class="cat-name" placeholder="שם הקטגוריה">
+      <button type="button" class="btn-icon remove-btn remove-category" aria-label="מחיקת קטגוריה">✕ מחיקת קטגוריה</button>
+    </div>
+    <div class="items-list"></div>
+    <button type="button" class="btn btn-ghost btn-small add-item">+ מנה חדשה</button>
+  </div>
+</template>
+
+<template id="tpl-item">
+  <div class="item-editor">
+    <div class="item-editor-row">
+      <input type="text" class="item-name" placeholder="שם המנה">
+      <input type="text" class="item-price" placeholder="מחיר (אפשר להשאיר ריק)">
+      <button type="button" class="btn-icon remove-btn" aria-label="מחיקת מנה">✕</button>
+    </div>
+    <input type="text" class="item-desc" placeholder="תיאור (אופציונלי)">
+  </div>
+</template>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>

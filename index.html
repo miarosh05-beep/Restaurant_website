@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Root &amp; Bloom | ביסטרו ובר יין בפארק המים, רעות</title>
+<meta name="description" content="שילוב מדויק בין קולינריה מוקפדת לאווירת בילוי נינוחה. ביסטרו מקומי בפארק המים רעות — תפריט שף ים־תיכוני, פירות ים, בשרים וקוקטיילים.">
+<meta property="og:title" content="Root & Bloom — Local Bistro">
+<meta property="og:description" content="מקום של אוכל טוב, יין ואנשים.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&amp;family=Heebo:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">דלג לתוכן המרכזי</a>
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home" aria-label="Root &amp; Bloom — לעמוד הבית">
+      <img class="brand-mark" src="images/logo.png" alt="" width="44" height="44">
+      <span class="brand-word">Root <em>&amp;</em> Bloom</span>
+    </a>
+
+    <nav class="main-nav" aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#home">בית</a></li>
+        <li><a href="#story">הסיפור שלנו</a></li>
+        <li><a href="#gallery">גלריה</a></li>
+        <li><a href="#menu">תפריט</a></li>
+        <li><a href="#reserve" class="nav-cta">הזמנת מקום</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="פתיחת תפריט ניווט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="ניווט ראשי למובייל" hidden>
+    <ul>
+      <li><a href="#home">בית</a></li>
+      <li><a href="#story">הסיפור שלנו</a></li>
+      <li><a href="#gallery">גלריה</a></li>
+      <li><a href="#menu">תפריט</a></li>
+      <li><a href="#reserve" class="nav-cta">הזמנת מקום</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section id="home" class="hero">
+    <img class="hero-bg" src="images/hero-garden.jpg" alt="החצר המוריקה של Root &amp; Bloom בשעת בין ערביים, עם פרגולת עץ, נברשות תלויות ואורחים יושבים סביב ערוגות פורחות">
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <img class="brand-mark brand-mark--hero reveal" src="images/logo.png" alt="Root &amp; Bloom Local Bistro" width="92" height="92">
+      <p class="eyebrow reveal" id="hero-eyebrow"></p>
+      <h1 class="hero-title reveal" id="hero-title"></h1>
+      <p class="hero-sub reveal" id="hero-subtitle"></p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary js-ontopo-link" href="https://ontopo.com/he/il/page/54459106" target="_blank" rel="noopener">להזמנת מקום</a>
+        <a class="btn btn-ghost" href="#menu">צפו בתפריט</a>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#story" aria-label="גלילה לתוכן הבא">
+      <span></span>
+    </a>
+  </section>
+
+  <section id="story" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>הסיפור שלנו</h2>
+        <span class="section-line" aria-hidden="true"></span>
+      </div>
+      <div class="story-grid">
+        <div class="story-text reveal">
+          <div id="story-paragraphs"></div>
+          <a class="text-link" href="#menu">לצפייה בתפריט המלא ←</a>
+        </div>
+        <div class="story-media reveal">
+          <img src="images/dish-cocktail.jpg" alt="קוקטייל ורוד בגביע זכוכית מעוגן, מוגש עם ענף לוונדר, על רקע תאורה חמה של הבר" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section section--muted">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>גלריה</h2>
+        <span class="section-line" aria-hidden="true"></span>
+      </div>
+      <ul class="gallery-grid" id="gallery-grid"></ul>
+    </div>
+  </section>
+
+  <section id="menu" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2>התפריט</h2>
+        <span class="section-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="menu-tabs" role="tablist" aria-label="קטגוריות תפריט" id="menu-tabs"></div>
+
+      <div class="menu-panels" id="menu-panels"></div>
+    </div>
+  </section>
+
+  <section id="reserve" class="section section--dark">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2>הזמנת מקום</h2>
+        <span class="section-line" aria-hidden="true"></span>
+      </div>
+
+      <div class="reserve-grid">
+        <div class="reserve-cta reveal">
+          <img class="brand-mark" src="images/logo.png" alt="Root &amp; Bloom Local Bistro" width="60" height="60">
+          <p class="reserve-lede">שולחן פנוי מחכה לכם. הזמנת מקום מהירה ופשוטה דרך Ontopo.</p>
+          <a class="btn btn-primary btn-large js-ontopo-link" href="https://ontopo.com/he/il/page/54459106" target="_blank" rel="noopener">להזמנה דרך Ontopo</a>
+        </div>
+
+        <div class="reserve-info reveal">
+          <dl>
+            <div class="info-row">
+              <dt>כתובת</dt>
+              <dd>
+                <span id="contact-address"></span>
+                <span class="verify-note" id="contact-address-note"></span>
+              </dd>
+            </div>
+            <div class="info-row">
+              <dt>טלפון</dt>
+              <dd><a href="tel:" class="mono-link" id="contact-phone"></a></dd>
+            </div>
+            <div class="info-row">
+              <dt>שעות פתיחה</dt>
+              <dd>
+                <table class="hours-table">
+                  <tbody id="contact-hours"></tbody>
+                </table>
+                <span class="verify-note">שעות אלה מבוססות על מערכת ההזמנות; מומלץ לאמת מול המסעדה לפני פרסום</span>
+              </dd>
+            </div>
+          </dl>
+          <a class="btn btn-outline" href="#" id="maps-link" target="_blank" rel="noopener">ניווט עם Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <a class="brand brand--footer" href="#home" aria-label="Root &amp; Bloom — לעמוד הבית">
+      <img class="brand-mark brand-mark--small" src="images/logo.png" alt="" width="34" height="34">
+      <span class="brand-word">Root <em>&amp;</em> Bloom</span>
+    </a>
+
+    <div class="footer-col">
+      <h3>פרטי קשר</h3>
+      <p id="footer-address"></p>
+      <p><a href="tel:" class="mono-link" id="footer-phone"></a></p>
+    </div>
+
+    <div class="footer-col">
+      <h3>עקבו אחרינו</h3>
+      <ul class="social-list">
+        <li><a href="#" target="_blank" rel="noopener" id="footer-instagram">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener" id="footer-facebook">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>עוד</h3>
+      <p class="footer-rating"><span aria-hidden="true">★★★★★</span> <span id="footer-rating"></span></p>
+      <p class="footer-price" id="footer-price"></p>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© <span id="year"></span> Root &amp; Bloom Local Bistro. כל הזכויות שמורות.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="סגירת תצוגה מוגדלת">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
